@@ -3,594 +3,1123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q.T - Éco-pâturage à Claye-Souilly</title>
+    <title>Jeux Gratuits par Redhos</title>
     <style>
-        /* Reset et styles de base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --main-color: #4a6fa5;
+            --secondary-color: #2a4365;
+            --accent-color: #5a82b5;
+            --text-light: #e0e0e0;
+            --text-dark: #121212;
+            --bg-dark: #0a0a0a;
+            --bg-light: rgba(255, 255, 255, 0.05);
         }
         
         body {
-            background-color: #f5f5f5;
-            color: #333;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
             overflow-x: hidden;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+            position: relative;
         }
         
-        /* Header */
         header {
-            background: linear-gradient(135deg, #4CAF50, #8BC34A);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            position: relative;
-            overflow: hidden;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .header-content {
-            position: relative;
-            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
         }
         
-        .subtitle {
-            font-size: 1.5rem;
-            opacity: 0.9;
+        .logo img {
+            height: 40px;
+            transition: transform 0.3s ease;
         }
         
-        /* Animation de fond */
-        .header-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+        
+        .main-logo {
+            max-width: 400px;
             width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
-            opacity: 0.2;
+            margin: 0 auto 30px;
+            display: block;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px 40px;
+            position: relative;
             z-index: 1;
         }
         
-        /* Navigation */
-        nav {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-around;
-            padding: 1rem 0;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .nav-item {
-            color: #555;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-item:hover {
-            background-color: #4CAF50;
-            color: white;
-        }
-        
-        /* Sections */
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        h2 {
+        .hero {
             text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2.2rem;
-            color: #444;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: white;
             position: relative;
         }
         
-        h2::after {
+        h1::after {
             content: '';
             display: block;
             width: 80px;
             height: 4px;
-            background: linear-gradient(to right, #4CAF50, #8BC34A);
-            margin: 0.5rem auto 0;
-            border-radius: 2px;
+            background: var(--main-color);
+            margin: 20px auto;
+            border-radius: 3px;
         }
         
-        /* Section présentation */
-        .presentation {
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+        }
+        
+        p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .button-container {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
         }
         
-        .presentation-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .presentation-image {
-            flex: 1;
-            min-width: 300px;
+        .button {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            border: 2px solid white;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            background: transparent;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            min-width: 200px;
         }
         
-        .presentation-image:hover {
-            transform: scale(1.02);
+        .button:hover {
+            background: #ff6347;
+            transform: scale(1.1);
         }
         
-        .presentation-image img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
         }
         
-        /* Section éco-pâturage */
-        .ecopaturage-section {
-            background-color: #f9f9f9;
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        .skill-card {
+            background: var(--bg-light);
+            padding: 20px 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-width: 150px;
+            transition: transform 0.3s;
         }
         
-        .benefits-grid {
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .game-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
         
-        .benefit-card {
-            background: white;
+        .game-card {
+            background: rgba(20, 20, 20, 0.8);
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
             transition: all 0.3s ease;
             position: relative;
-            padding: 1.5rem;
-            text-align: center;
-        }
-        
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .benefit-icon {
-            font-size: 2.5rem;
-            color: #4CAF50;
-            margin-bottom: 1rem;
-        }
-        
-        .benefit-title {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-        
-        .benefit-description {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        /* Animation des moutons */
-        .floating-sheep {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="30" cy="40" r="20" fill="white"/><circle cx="60" cy="40" r="25" fill="white"/><circle cx="80" cy="45" r="15" fill="white"/><circle cx="25" cy="35" r="5" fill="black"/><circle cx="35" cy="35" r="5" fill="black"/><path d="M20 50 Q30 60 40 50" stroke="black" fill="transparent" stroke-width="2"/></svg>');
-            background-size: contain;
-            background-repeat: no-repeat;
-            z-index: 10;
-            pointer-events: none;
-            animation: float 6s ease-in-out infinite;
-            opacity: 0.8;
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
-        }
-        
-        /* Section carte */
-        .map-container {
-            height: 400px;
-            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-            position: relative;
         }
         
-        #map {
-            height: 100%;
-            width: 100%;
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
         }
         
-        /* Section contact */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 2rem;
+        .game-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .download-button {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 15px 30px;
+            border: 2px solid white;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background: transparent;
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin-top: 20px;
         }
         
-        .form-group {
-            margin-bottom: 1.5rem;
+        .download-button:hover {
+            background: #ff6347;
+            transform: scale(1.1);
         }
         
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #555;
+        .system-requirements {
+            font-size: 0.95em;
+            color: #b0b0b0;
+            margin-top: 20px;
+            text-align: left;
+            line-height: 1.6;
+        }
+        
+        .system-requirements strong {
+            color: white;
             font-weight: 500;
         }
         
-        input, textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border 0.3s ease;
-        }
-        
-        input:focus, textarea:focus {
-            border-color: #4CAF50;
-            outline: none;
-        }
-        
-        textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            background: linear-gradient(to right, #4CAF50, #8BC34A);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: block;
-            margin: 0 auto;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.6);
-        }
-        
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #2E7D32, #4CAF50);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 2rem;
-        }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-            text-align: left;
-        }
-        
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
+        .shooting-star {
+            position: fixed;
+            top: 0;
             left: 0;
-            width: 40px;
+            width: 2px;
             height: 2px;
-            background: #8BC34A;
+            background: white;
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+            animation: shootingStar linear;
+            opacity: 0;
         }
         
-        .footer-section p, .footer-section a {
-            color: #ddd;
-            margin-bottom: 0.5rem;
-            display: block;
-            text-decoration: none;
-            transition: color 0.3s ease;
+        @keyframes shootingStar {
+            0% {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100vw) translateY(100vh);
+                opacity: 0;
+            }
         }
         
-        .footer-section a:hover {
-            color: #8BC34A;
-        }
-        
-        .copyright {
-            margin-top: 2rem;
-            padding-top: 1rem;
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #aaa;
+            backdrop-filter: blur(5px);
         }
         
-        /* Effets spéciaux */
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            height: 300px;
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .discord-info {
+            background: rgba(88, 101, 242, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 300px;
+            border: 1px solid rgba(88, 101, 242, 0.5);
+        }
+
+        /* Styles pour le jeu Zombie Survivor */
+        #zombieGameContainer {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background-color: #333;
+            overflow: hidden;
+            margin: 20px auto;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        #zombiePlayer {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            z-index: 10;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px #4CAF50;
+        }
+        
+        .zombie {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #8B0000;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            transition: transform 0.1s linear;
+        }
+        
+        .bullet {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #FFD700;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 8;
+        }
+        
+        .upgrade {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: #1E90FF;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 7;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            text-align: center;
-            position: relative;
+            font-weight: bold;
+            font-size: 12px;
+            box-shadow: 0 0 10px #1E90FF;
+            animation: pulse 1s infinite alternate;
         }
         
-        .parallax::before {
-            content: '';
+        #zombieUi {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            z-index: 20;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        #livesContainer {
+            display: flex;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        
+        .life {
+            width: 15px;
+            height: 15px;
+            background-color: #FF0000;
+            border-radius: 50%;
+        }
+        
+        #zombieGameOver {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            z-index: 30;
         }
         
-        .parallax-content {
-            position: relative;
-            z-index: 2;
+        #zombieStartScreen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            z-index: 40;
+            text-align: center;
         }
         
-        /* Responsive */
+        .zombie-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        .zombie-controls-info {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .zombie-key {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin: 5px;
+            font-family: monospace;
+        }
+        
+        .direction-indicator {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #FFD700;
+            border-radius: 50%;
+            z-index: 9;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+        
         @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .main-logo {
+                max-width: 250px;
+            }
+            
             h1 {
-                font-size: 2.2rem;
+                font-size: 2em;
             }
             
-            .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .nav-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.5rem;
-            }
-            
-            section {
-                padding: 2rem 1rem;
-            }
-            
-            .presentation {
-                flex-direction: column;
+            .game-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    
     <header>
-        <div class="header-bg"></div>
         <div class="header-content">
-            <h1>Q.T - Éco-pâturage à Claye-Souilly</h1>
-            <p class="subtitle">Une solution naturelle et écologique pour l'entretien des espaces verts</p>
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Redhos Games">
+            </a>
+            <nav>
+                <a href="#games">Jeux</a>
+                <a href="#about">À propos</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
     </header>
-    
-    <nav>
-        <div class="nav-container">
-            <a href="#presentation" class="nav-item">Présentation</a>
-            <a href="#ecopaturage" class="nav-item">Éco-pâturage</a>
-            <a href="#localisation" class="nav-item">Localisation</a>
-            <a href="#contact" class="nav-item">Contact</a>
-        </div>
-    </nav>
-    
-    <section id="presentation">
-        <h2>Bienvenue au Q.T</h2>
-        <div class="presentation">
-            <div class="presentation-text">
-                <p>Le Q.T à Claye-Souilly est spécialisé dans l'éco-pâturage, une méthode d'entretien écologique des espaces verts par le pâturage d'animaux herbivores.</p>
-                <br>
-                <p>Notre approche s'inscrit dans une démarche de développement durable, permettant de réduire l'empreinte carbone tout en favorisant la biodiversité. Nous proposons des solutions adaptées aux collectivités, entreprises et particuliers.</p>
-                <br>
-                <p>Nos moutons, soigneusement sélectionnés, entretiennent vos espaces verts de manière naturelle, sans bruit de moteur, sans pollution et en favorisant la fertilisation naturelle des sols.</p>
-            </div>
-            <div class="presentation-image">
-                <img src="image.png" alt="Éco-pâturage à Claye-Souilly">
-            </div>
-        </div>
-    </section>
-    
-    <div class="parallax" style="background-image: url('https://images.unsplash.com/photo-1583845112203-454c6f0a7bd8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
-        <div class="parallax-content">
-            <h2 style="color: white;">Une solution 100% naturelle</h2>
-        </div>
-    </div>
-    
-    <section id="ecopaturage">
-        <h2>L'éco-pâturage</h2>
-        <div class="ecopaturage-section">
-            <p>L'éco-pâturage est une méthode ancestrale remise au goût du jour pour répondre aux enjeux écologiques actuels. Découvrez ses nombreux avantages :</p>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🌱</div>
-                    <h3 class="benefit-title">Écologique</h3>
-                    <p class="benefit-description">Zéro émission de CO2, pas de pollution sonore ni d'utilisation de produits chimiques.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">💰</div>
-                    <h3 class="benefit-title">Économique</h3>
-                    <p class="benefit-description">Réduction des coûts d'entretien à long terme par rapport aux méthodes mécaniques.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">🦋</div>
-                    <h3 class="benefit-title">Biodiversité</h3>
-                    <p class="benefit-description">Favorise la diversité florale et faunistique en maintenant des écosystèmes équilibrés.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">👥</div>
-                    <h3 class="benefit-title">Social</h3>
-                    <p class="benefit-description">Crée du lien social et offre un cadre de vie plus agréable et naturel.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">🌍</div>
-                    <h3 class="benefit-title">Durable</h3>
-                    <p class="benefit-description">Solution pérenne qui s'inscrit dans une démarche de développement durable.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">🐑</div>
-                    <h3 class="benefit-title">Bien-être animal</h3>
-                    <p class="benefit-description">Nos animaux vivent en plein air dans des conditions optimales de bien-être.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="localisation">
-        <h2>Localisation</h2>
-        <p>Retrouvez-nous à Claye-Souilly, où nous mettons en œuvre nos solutions d'éco-pâturage. Voici notre position exacte :</p>
+
+    <section class="hero">
+        <img src="logo.png" alt="Logo Redhos" class="main-logo">
+        <h1>JEUX GRATUITS PAR REDHOS</h1>
+        <p>Cr4ck by redhos tester et approuver</p>
         
-        <div class="map-container">
-            <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2629.86911078445!2d2.686908315672964!3d48.94490267928285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60c3d0a8e9a9f%3A0x1c1b5b5b5b5b5b5b!2sQ.T%20-%20%C3%89co-p%C3%A2turage%20Claye-Souilly!5e0!3m2!1sfr!2sfr!4v1620000000000!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy"></iframe>
+        <div class="button-container">
+            <a href="#games" class="button">Voir les jeux</a>
+            <a href="https://github.com/Redosansms" target="_blank" class="button">Mon GitHub</a>
+            <a href="https://redosansms.github.io/Q.Twebsite/" target="_blank" class="button">Q.T</a>
+            <a href="https://guns.lol/redhos" target="_blank" class="button">Guns.LOL</a>
+        </div>
+        
+        <div class="skills">
+            <div class="skill-card">
+                <div>HTML/CSS</div>
+                <div>40%</div>
+            </div>
+            <div class="skill-card">
+                <div>Python</div>
+                <div>60%</div>
+            </div>
+            <div class="skill-card">
+                <div>Jeux PC</div>
+                <div>100%</div>
+            </div>
         </div>
     </section>
-    
+
+    <section id="games">
+        <h2>NOS DERNIERS JEUX</h2>
+        <p>Cr4ck by redhos mp si problemme mais tester.</p>
+        
+        <div class="game-grid">
+            <div class="game-card">
+                <h3>FREE LETHAL COMPANY</h3>
+                <p>Un jeu d'horreur coopératif où vous explorez des installations abandonnées pour récupérer des objets de valeur.</p>
+                
+                <a href="https://pixeldrain.com/u/MyTuH6EB" target="_blank" class="download-button">Télécharger</a>
+                
+                <div class="system-requirements">
+                    <strong>CONFIGURATION MINIMALE :</strong><br>
+                    • Windows 10 64-bit<br>
+                    • Intel Core i5-7400<br>
+                    • NVIDIA GTX 1050<br>
+                    • 2 GB d'espace disque
+                </div>
+            </div>
+            
+            <div class="game-card">
+                <h3>FREE STRANDED DEEP</h3>
+                <p>Survivez après un crash d'avion dans l'océan Pacifique. Construisez, explorez et survivez dans ce monde ouvert.</p>
+                
+                <a href="https://pixeldrain.com/u/2DBFkddx" target="_blank" class="download-button">Télécharger</a>
+                
+                <div class="system-requirements">
+                    <strong>CONFIGURATION MINIMALE :</strong><br>
+                    • Windows 7<br>
+                    • Quad Core 2.0GHz+<br>
+                    • 2GB VRAM<br>
+                    • 4 GB d'espace disque
+                </div>
+            </div>
+            
+            <div class="game-card">
+                <h3>A VENIR</h3>
+                <p>Bientot plus de jeux cr4ck mais en attendant jouer a se jeux pour patienter </p>
+                
+                <div id="zombieGameContainer">
+                    <div id="zombiePlayer"></div>
+                    <div class="direction-indicator" id="directionIndicator"></div>
+                    
+                    <div id="zombieUi">
+                        <div>Score: <span id="score">0</span></div>
+                        <div>Vague: <span id="wave">1</span></div>
+                        <div>Zombies: <span id="zombieCount">0</span></div>
+                        <div>Dégâts: <span id="damage">1</span></div>
+                        <div>Vitesse: <span id="speed">5</span></div>
+                        <div>Vies: <div id="livesContainer"></div></div>
+                    </div>
+                    
+                    <div id="zombieGameOver">
+                        <h1>Game Over</h1>
+                        <p>Score final: <span id="finalScore">0</span></p>
+                        <button class="zombie-btn" id="restartBtn">Rejouer</button>
+                    </div>
+                    
+                    <div id="zombieStartScreen">
+                        <h2>Zombie Survivor</h2>
+                        <p>Survivez le plus longtemps possible en tuant des zombies !</p>
+                        
+                        <div class="zombie-controls-info">
+                            <h3>Contrôles :</h3>
+                            <p>Déplacement : <span class="zombie-key">Z</span><span class="zombie-key">Q</span><span class="zombie-key">S</span><span class="zombie-key">D</span> ou <span class="zombie-key">↑</span><span class="zombie-key">←</span><span class="zombie-key">↓</span><span class="zombie-key">→</span></p>
+                            <p>Tir automatique dans la direction du déplacement</p>
+                            <p>Tir manuel : <span class="zombie-key">Espace</span></p>
+                        </div>
+                        
+                        <p>Appuyez sur une touche de déplacement pour commencer</p>
+                        <button class="zombie-btn" id="startBtn">Commencer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>À PROPOS DE REDHOS</h2>
+        <p>MP Open maj reguliere .</p>
+        
+        <div class="skills" style="margin-top: 40px;">
+            <div class="skill-card">
+                <div>+50</div>
+                <div>Jeux testés</div>
+            </div>
+            <div class="skill-card">
+                <div>100%</div>
+                <div>Gratuits</div>
+            </div>
+            <div class="skill-card">
+                <div>24/7</div>
+                <div>Disponibles</div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
-        <h2>Accès</h2>
-        <p>Notre espace d'éco-pâturage est ouvert en permanence et accessible librement.</p>
-        <p>Pour toute information complémentaire, consultez notre localisation sur Google Maps.</p>
-    </section>
-    
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Q.T - Éco-pâturage</h3>
-                <p>Solution naturelle pour l'entretien des espaces verts</p>
-                <p>Claye-Souilly, 77410</p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Horaires</h3>
-                <p>Ouvert 7j/7, 24h/24</p>
-                <p>Accès libre en permanence</p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Localisation</h3>
-                <a href="https://maps.app.goo.gl/UDqQE2MjVzv9h4q46" target="_blank" style="color:#8BC34A;text-decoration:underline;">Voir sur Google Maps</a>
-            </div>
+        <h2>CONTACT</h2>
+        <p>Une question ou une suggestion ? N'hésitez pas à me contacter :</p>
+        
+        <div class="discord-info">
+            <p>Discord: <strong>chuck_the_yellow</strong></p>
         </div>
         
-        <div class="copyright">
-            <p>&copy; 2023 Q.T - Éco-pâturage Claye-Souilly</p>
+        <div class="button-container">
+            <a href="https://github.com/Redosansms" target="_blank" class="button">GitHub</a>
+            <a href="https://redosansms.github.io/Q.Twebsite/" target="_blank" class="button">Q.T</a>
+            <a href="https://guns.lol/redhos" target="_blank" class="button">Guns.LOL</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2023 Redhos Games - Tous droits réservés</p>
+        <div class="social-links">
+            <a href="#" target="_blank">📱</a>
+            <a href="#" target="_blank">💬</a>
+            <a href="#" target="_blank">🎮</a>
         </div>
     </footer>
-    
+
     <script>
-        // Création des moutons animés
-        function createFloatingSheep() {
-            const sheepCount = 5;
+        function createShootingStars() {
+            const star = document.createElement("div");
+            star.classList.add("shooting-star");
+            document.body.appendChild(star);
             
-            for (let i = 0; i < sheepCount; i++) {
-                const sheep = document.createElement('div');
-                sheep.className = 'floating-sheep';
-                
-                // Position aléatoire
-                const left = Math.random() * 100;
-                const top = Math.random() * 100;
-                
-                sheep.style.left = `${left}%`;
-                sheep.style.top = `${top}%`;
-                
-                // Animation différente pour chacun
-                sheep.style.animationDuration = `${4 + Math.random() * 4}s`;
-                sheep.style.animationDelay = `${Math.random() * 2}s`;
-                
-                // Taille aléatoire
-                const size = 40 + Math.random() * 40;
-                sheep.style.width = `${size}px`;
-                sheep.style.height = `${size}px`;
-                
-                document.body.appendChild(sheep);
+            const startX = Math.random() * 20;
+            const startY = Math.random() * 20;
+            star.style.left = startX + "vw";
+            star.style.top = startY + "vh";
+            
+            const duration = 2 + Math.random() * 3;
+            star.style.animationDuration = duration + "s";
+            
+            setTimeout(() => {
+                star.remove();
+            }, duration * 1000);
+        }
+        
+        setInterval(createShootingStars, 800);
+        
+        window.onload = function() {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            for (let i = 0; i < 5; i++) {
+                setTimeout(createShootingStars, i * 300);
+            }
+        };
+
+        // Script du jeu Zombie Survivor
+        const player = document.getElementById('zombiePlayer');
+        const directionIndicator = document.getElementById('directionIndicator');
+        const gameContainer = document.getElementById('zombieGameContainer');
+        const scoreElement = document.getElementById('score');
+        const waveElement = document.getElementById('wave');
+        const zombieCountElement = document.getElementById('zombieCount');
+        const damageElement = document.getElementById('damage');
+        const speedElement = document.getElementById('speed');
+        const livesContainer = document.getElementById('livesContainer');
+        const gameOverScreen = document.getElementById('zombieGameOver');
+        const finalScoreElement = document.getElementById('finalScore');
+        const restartBtn = document.getElementById('restartBtn');
+        const startScreen = document.getElementById('zombieStartScreen');
+        const startBtn = document.getElementById('startBtn');
+        
+        let score = 0;
+        let wave = 1;
+        let zombiesKilled = 0;
+        let playerDamage = 1;
+        let playerSpeed = 5;
+        let playerLives = 3;
+        let playerX = gameContainer.offsetWidth / 2;
+        let playerY = gameContainer.offsetHeight / 2;
+        let zombies = [];
+        let bullets = [];
+        let upgrades = [];
+        let gameRunning = false;
+        let keys = {};
+        let lastMoveAngle = 0;
+        let shootInterval;
+        let gameStarted = false;
+        let invincible = false;
+        
+        // Écouteurs d'événements
+        document.addEventListener('keydown', (e) => {
+            keys[e.key.toLowerCase()] = true;
+            
+            // Démarrer le jeu si ce n'est pas encore fait et qu'une touche de déplacement est pressée
+            if (!gameStarted && (e.key === 'ArrowUp' || e.key === 'ArrowDown' || e.key === 'ArrowLeft' || e.key === 'ArrowRight' || 
+                e.key === 'z' || e.key === 'q' || e.key === 's' || e.key === 'd')) {
+                startGame();
+            }
+            
+            // Démarrer le tir automatique
+            if (gameRunning && (e.key === ' ')) {
+                clearInterval(shootInterval);
+                shootInterval = setInterval(shoot, 300);
+            }
+        });
+        
+        document.addEventListener('keyup', (e) => {
+            keys[e.key.toLowerCase()] = false;
+            
+            // Arrêter le tir automatique
+            if (e.key === ' ') {
+                clearInterval(shootInterval);
+            }
+        });
+        
+        startBtn.addEventListener('click', startGame);
+        restartBtn.addEventListener('click', startGame);
+        
+        // Créer les éléments de vie
+        function createLives() {
+            livesContainer.innerHTML = '';
+            for (let i = 0; i < playerLives; i++) {
+                const life = document.createElement('div');
+                life.className = 'life';
+                livesContainer.appendChild(life);
             }
         }
         
-        // Animation au scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            createFloatingSheep();
+        // Initialisation du jeu
+        function initGame() {
+            score = 0;
+            wave = 1;
+            zombiesKilled = 0;
+            playerDamage = 1;
+            playerSpeed = 5;
+            playerLives = 3;
+            playerX = gameContainer.offsetWidth / 2;
+            playerY = gameContainer.offsetHeight / 2;
+            zombies = [];
+            bullets = [];
+            upgrades = [];
+            gameRunning = true;
+            invincible = false;
             
-            // Animation des éléments au scroll
-            const animateOnScroll = function() {
-                const elements = document.querySelectorAll('.presentation-image, .benefit-card');
-                
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.3;
+            // Supprimer tous les zombies et balles restants
+            document.querySelectorAll('.zombie, .bullet, .upgrade').forEach(el => el.remove());
+            
+            createLives();
+            updateUI();
+            spawnZombies(3);
+            gameOverScreen.style.display = 'none';
+            
+            // Position initiale du joueur
+            updatePlayerPosition();
+        }
+        
+        // Démarrer le jeu
+        function startGame() {
+            gameStarted = true;
+            startScreen.style.display = 'none';
+            initGame();
+            gameLoop();
+            autoShootLoop();
+        }
+        
+        // Mise à jour de l'interface utilisateur
+        function updateUI() {
+            scoreElement.textContent = score;
+            waveElement.textContent = wave;
+            zombieCountElement.textContent = zombies.length;
+            damageElement.textContent = playerDamage;
+            speedElement.textContent = playerSpeed;
+            createLives();
+        }
+        
+        // Positionnement du joueur
+        function updatePlayerPosition() {
+            player.style.left = playerX + 'px';
+            player.style.top = playerY + 'px';
+        }
+        
+        // Apparition des zombies
+        function spawnZombies(count) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    if (!gameRunning) return;
                     
-                    if (elementPosition < screenPosition) {
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
-                    }
-                });
+                    const zombie = document.createElement('div');
+                    zombie.className = 'zombie';
+                    
+                    // Position aléatoire autour du joueur (mais pas trop près)
+                    let angle = Math.random() * Math.PI * 2;
+                    let distance = 100 + Math.random() * 100;
+                    let spawnX = playerX + Math.cos(angle) * distance;
+                    let spawnY = playerY + Math.sin(angle) * distance;
+                    
+                    // S'assurer que le zombie apparaît dans les limites
+                    spawnX = Math.max(30, Math.min(gameContainer.offsetWidth - 30, spawnX));
+                    spawnY = Math.max(30, Math.min(gameContainer.offsetHeight - 30, spawnY));
+                    
+                    zombie.style.left = spawnX + 'px';
+                    zombie.style.top = spawnY + 'px';
+                    
+                    const zombieObj = {
+                        element: zombie,
+                        x: spawnX,
+                        y: spawnY,
+                        speed: 1 + Math.random() * 0.5,
+                        health: 1
+                    };
+                    
+                    zombies.push(zombieObj);
+                    gameContainer.appendChild(zombie);
+                    updateUI();
+                }, i * 300);
+            }
+        }
+        
+        // Apparition d'améliorations
+        function spawnUpgrade(x, y) {
+            const upgradeTypes = ['damage', 'speed', 'health'];
+            const type = upgradeTypes[Math.floor(Math.random() * upgradeTypes.length)];
+            
+            const upgrade = document.createElement('div');
+            upgrade.className = 'upgrade';
+            upgrade.textContent = type === 'damage' ? '⚔️' : type === 'speed' ? '🏃' : '❤️';
+            upgrade.dataset.type = type;
+            
+            // Position aléatoire près de la position donnée
+            x = x + (Math.random() * 100 - 50);
+            y = y + (Math.random() * 100 - 50);
+            
+            // S'assurer que l'amélioration apparaît dans les limites
+            x = Math.max(30, Math.min(gameContainer.offsetWidth - 30, x));
+            y = Math.max(30, Math.min(gameContainer.offsetHeight - 30, y));
+            
+            upgrade.style.left = x + 'px';
+            upgrade.style.top = y + 'px';
+            
+            const upgradeObj = {
+                element: upgrade,
+                x: x,
+                y: y,
+                type: type
             };
             
-            // Initialisation des styles pour l'animation
-            document.querySelectorAll('.presentation-image, .benefit-card').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            upgrades.push(upgradeObj);
+            gameContainer.appendChild(upgrade);
+            
+            // Disparaît après 10 secondes
+            setTimeout(() => {
+                if (upgrades.includes(upgradeObj)) {
+                    gameContainer.removeChild(upgrade);
+                    upgrades = upgrades.filter(u => u !== upgradeObj);
+                }
+            }, 10000);
+        }
+        
+        // Tirer un projectile
+        function shoot(angle = null) {
+            if (!gameRunning) return;
+            
+            const bullet = document.createElement('div');
+            bullet.className = 'bullet';
+            bullet.style.left = playerX + 'px';
+            bullet.style.top = playerY + 'px';
+            
+            // Utiliser l'angle fourni ou la dernière direction de déplacement
+            const bulletAngle = angle !== null ? angle : lastMoveAngle;
+            
+            const bulletObj = {
+                element: bullet,
+                x: playerX,
+                y: playerY,
+                speed: 10,
+                angle: bulletAngle,
+                damage: playerDamage
+            };
+            
+            bullets.push(bulletObj);
+            gameContainer.appendChild(bullet);
+            
+            // Afficher brièvement l'indicateur de direction
+            if (angle !== null) {
+                directionIndicator.style.display = 'block';
+                directionIndicator.style.left = (playerX + Math.cos(angle) * 30) + 'px';
+                directionIndicator.style.top = (playerY + Math.sin(angle) * 30) + 'px';
+                setTimeout(() => {
+                    directionIndicator.style.display = 'none';
+                }, 100);
+            }
+        }
+        
+        // Boucle de tir automatique
+        function autoShootLoop() {
+            if (!gameRunning) return;
+            
+            // Vérifier si le joueur est en mouvement
+            let isMoving = keys['z'] || keys['s'] || keys['q'] || keys['d'] || 
+                          keys['arrowup'] || keys['arrowdown'] || keys['arrowleft'] || keys['arrowright'];
+            
+            // Tirer seulement si en mouvement
+            if (isMoving) {
+                shoot();
+            }
+            
+            setTimeout(autoShootLoop, 300);
+        }
+        
+        // Gestion des collisions
+        function checkCollisions() {
+            // Bullets vs Zombies
+            bullets.forEach((bullet, bulletIndex) => {
+                zombies.forEach((zombie, zombieIndex) => {
+                    const dx = bullet.x - zombie.x;
+                    const dy = bullet.y - zombie.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 20) { // Distance de collision
+                        // Appliquer des dégâts
+                        zombie.health -= bullet.damage;
+                        
+                        // Supprimer la balle
+                        gameContainer.removeChild(bullet.element);
+                        bullets.splice(bulletIndex, 1);
+                        
+                        // Vérifier si le zombie est mort
+                        if (zombie.health <= 0) {
+                            gameContainer.removeChild(zombie.element);
+                            zombies.splice(zombieIndex, 1);
+                            score += 10;
+                            zombiesKilled++;
+                            
+                            
+                            if (Math.random() < 0.3) {
+                                spawnUpgrade(zombie.x, zombie.y);
+                            }
+                            
+                            
+                            if (zombiesKilled % 3 === 0) {
+                                wave++;
+                                spawnZombies(wave + 2); 
+                            }
+                        }
+                        
+                        updateUI();
+                    }
+                });
             });
             
-            window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll(); // Appel initial
+            
+            upgrades.forEach((upgrade, index) => {
+                const dx = playerX - upgrade.x;
+                const dy = playerY - upgrade.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 30) { 
+                    gameContainer.removeChild(upgrade.element);
+                    upgrades.splice(index, 1);
+                    
+                    
+                    switch (upgrade.type) {
+                        case 'damage':
+                            playerDamage += 0.5;
+                            break;
+                        case 'speed':
+                            playerSpeed += 0.5;
+                            break;
+                        case 'health':
+                            if (playerLives < 3) {
+                                playerLives++;
+                            }
+                            break;
+                    }
+                    
+                    updateUI();
+                }
+            });
+            
+            
+            if (!invincible) {
+                zombies.forEach(zombie => {
+                    const dx = playerX - zombie.x;
+                    const dy = playerY - zombie.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 35) { 
+                        playerLives--;
+                        updateUI();
+                        
+                        if (playerLives <= 0) {
+                            gameOver();
+                        } else {
+                            
+                            invincible = true;
+                            player.style.opacity = '0.5';
+                            setTimeout(() => {
+                                invincible = false;
+                                player.style.opacity = '1';
+                            }, 2000);
+                        }
+                    }
+                });
+            }
+        }
+        
+        
+        function gameOver() {
+            gameRunning = false;
+            finalScoreElement.textContent = score;
+            gameOverScreen.style.display = 'flex';
+            clearInterval(shootInterval);
+        }
+        
+        
+        function gameLoop() {
+            if (!gameRunning) return;
+            
+           
+            let moveX = 0;
+            let moveY = 0;
+            
+            
+            if (keys['z'] || keys['arrowup']) moveY -= playerSpeed;
+            if (keys['s'] || keys['arrowdown']) moveY += playerSpeed;
+            if (keys['q'] || keys['arrowleft']) moveX -= playerSpeed;
+            if (keys['d'] || keys['arrowright']) moveX += playerSpeed;
+            
+            
+            if (moveX !== 0 || moveY !== 0) {
+                lastMoveAngle = Math.atan2(moveY, moveX);
+            }
+            
+            
+            if (moveX !== 0 && moveY !== 0) {
+                moveX *= 0.7071; // 1/√2
+                moveY *= 0.7071;
+            }
+            
+            playerX = Math.max(20, Math.min(gameContainer.offsetWidth - 20, playerX + moveX));
+            playerY = Math.max(20, Math.min(gameContainer.offsetHeight - 20, playerY + moveY));
+            
+            updatePlayerPosition();
+            
+            
+            if (keys[' ']) {
+                shoot(lastMoveAngle);
+            }
+            
+                   
+                    zombies.forEach(zombie => {
+                const dx = playerX - zombie.x;
+                const dy = playerY - zombie.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                const angle = Math.atan2(dy, dx);
+                
+                zombie.x += Math.cos(angle) * zombie.speed;
+                zombie.y += Math.sin(angle) * zombie.speed;
+                
+                zombie.element.style.left = zombie.x + 'px';
+                zombie.element.style.top = zombie.y + 'px';
+                
+                
+                zombie.element.style.transform = `translate(-50%, -50%) rotate(${angle + Math.PI/2}rad)`;
+            });
+            
+            
+            bullets.forEach((bullet, index) => {
+                bullet.x += Math.cos(bullet.angle) * bullet.speed;
+                bullet.y += Math.sin(bullet.angle) * bullet.speed;
+                
+                bullet.element.style.left = bullet.x + 'px';
+                bullet.element.style.top = bullet.y + 'px';
+                
+                
+                if (bullet.x < 0 || bullet.x > gameContainer.offsetWidth || 
+                    bullet.y < 0 || bullet.y > gameContainer.offsetHeight) {
+                    gameContainer.removeChild(bullet.element);
+                    bullets.splice(index, 1);
+                }
+            });
+            
+            checkCollisions();
+            requestAnimationFrame(gameLoop);
+        }
+        
+        
+        window.addEventListener('resize', () => {
+            playerX = Math.max(20, Math.min(gameContainer.offsetWidth - 20, playerX));
+            playerY = Math.max(20, Math.min(gameContainer.offsetHeight - 20, playerY));
+            updatePlayerPosition();
         });
     </script>
 </body>
